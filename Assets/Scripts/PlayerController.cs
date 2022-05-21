@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     // Cached references
     private Rigidbody2D rb;
     private Vector3 inputDirection;
-    private bool currentInput = false;
 
     void Start()
     {
@@ -24,23 +23,22 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        CalculateMovementInput();  // Taken from online solution but I might not need to cache the bool, check if it works and then check if I can just do it as return
-        MovePlayer();
+        MovePlayer(CalculateMovementInput());
     }
 
-    private void CalculateMovementInput()
+    private bool CalculateMovementInput()
     {
-        if (inputDirection == Vector3.zero)
+        if (inputDirection != Vector3.zero)
         {
-            currentInput = false;
+            return true;
         }
-        else if (inputDirection != Vector3.zero)
+        else 
         {
-            currentInput = true;
+            return false;
         }
     }
 
-    private void MovePlayer()
+    private void MovePlayer(bool currentInput)
     {
         if (currentInput == true)
         {  
