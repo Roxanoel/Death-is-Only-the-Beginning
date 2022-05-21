@@ -43,9 +43,14 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         if (currentInput == true)
-        {
+        {  
             Vector3 movement = inputDirection.normalized * speed * Time.deltaTime;
-            transform.position += (movement * Time.deltaTime * speed);
+            rb.velocity = movement * speed;
+            transform.up = rb.velocity.normalized;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
         }
     }
     public void OnMove(InputValue value)
