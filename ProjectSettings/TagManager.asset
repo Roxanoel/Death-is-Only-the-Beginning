@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Walls
+  - Furniture
+  - Decor
+  - Characters
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2536155927
+    locked: 0
+  - name: Walls
+    uniqueID: 4202018489
+    locked: 0
+  - name: Furniture
+    uniqueID: 1463334341
+    locked: 0
+  - name: Decor
+    uniqueID: 3969589165
+    locked: 0
+  - name: Characters
+    uniqueID: 3077235867
     locked: 0
