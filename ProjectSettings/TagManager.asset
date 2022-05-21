@@ -53,6 +53,9 @@ TagManager:
   - name: Decor
     uniqueID: 3969589165
     locked: 0
+  - name: Bullets
+    uniqueID: 1247679873
+    locked: 0
   - name: Characters
     uniqueID: 3077235867
     locked: 0
