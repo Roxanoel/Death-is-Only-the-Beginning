@@ -27,5 +27,6 @@ public class Bullet : MonoBehaviour
     public void SetBulletDirection(Vector3 playerDirection)
     {
         forward = playerDirection;
+        transform.up = playerDirection;
     }
 }
