@@ -29,4 +29,9 @@ public class Bullet : MonoBehaviour
         forward = playerDirection;
         transform.up = playerDirection;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(this.gameObject); // For now only destroys & doesn't check tags or layers.
+    }
 }
