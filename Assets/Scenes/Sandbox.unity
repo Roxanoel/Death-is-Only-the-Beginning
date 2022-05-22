@@ -497,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 730199560645125177, guid: 47adeb41ed1bc154e91304dab1e14644, type: 3}
   gun: {fileID: 869086032}
+  fireRateInSeconds: 0.25
 --- !u!70 &367641738
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
