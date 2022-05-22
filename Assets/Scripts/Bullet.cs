@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     // Cached refs
     private Rigidbody2D rb;
+    private Vector3 forward;
+    private bool directionWasSetup = false;
     
     void Start()
     {
@@ -19,6 +21,11 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = speed * Time.deltaTime * Vector2.up;
+        rb.velocity = speed * Time.deltaTime * forward;
+    }
+
+    public void SetBulletDirection(Vector3 playerDirection)
+    {
+        forward = playerDirection;
     }
 }

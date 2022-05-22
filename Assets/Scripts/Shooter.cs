@@ -11,5 +11,6 @@ public class Shooter : MonoBehaviour
     public void Shoot()
     {
         GameObject firedBullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);   // Rotation will need to change but for now leave as is
+        firedBullet.GetComponent<Bullet>().SetBulletDirection(gameObject.transform.up);
     }
 }
