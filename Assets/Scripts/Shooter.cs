@@ -8,6 +8,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform gun;
     [SerializeField] float fireRateInSeconds = 0.25f;
+    [SerializeField] float damage = 1.0f;
 
     // Cached refs
     private float fireRateTimer;
