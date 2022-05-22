@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
     // Cached references
     private Rigidbody2D rb;
     private Vector3 inputDirection;
+    private Shooter shooter;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        shooter = GetComponent<Shooter>();
     }
 
 
@@ -54,5 +56,10 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         inputDirection = value.Get<Vector2>();
+    }
+
+    public void OnFire()
+    {
+        shooter.Shoot();
     }
 }
