@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
 
     private void GenerateWaypointList()
     {
+        waypointTransforms = new List<Transform>();
         Transform[] allChildren = waypointsParent.GetComponentsInChildren<Transform>();
         foreach (var child in allChildren)
         {
@@ -53,18 +54,22 @@ public class EnemyController : MonoBehaviour
         if (CheckIfPlayerInRange())
         {
             // Attack behaviour
+            Debug.Log("Attack behaviour");
             return;
         }
         if (waypointsParent != null)
         {
             // Patrol behaviour
+            Debug.Log("Patrol behaviour");
         }
     }
 
 
     private bool CheckIfPlayerInRange()
     {
-        Collider2D[] allHits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.NameToLayer("Characters"));
+        // TO DO: Add code to check if the player is in the line of sight! Might need to do another raycast in a line, order the hits, check if I hit a wall first.
+
+        Collider2D[] allHits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Characters"));
         foreach (Collider2D collider in allHits)
         {
             if (collider.CompareTag("Player")) return true;
