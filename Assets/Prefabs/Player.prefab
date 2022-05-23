@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2432432776067817065}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,6 +311,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 730199560645125177, guid: 47adeb41ed1bc154e91304dab1e14644, type: 3}
   gun: {fileID: 2432432775499803059}
   fireRateInSeconds: 0.25
+  damage: 1
 --- !u!70 &2432432776067817065
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 30709787}
   - component: {fileID: 30709789}
   - component: {fileID: 30709788}
+  - component: {fileID: 30709790}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -430,6 +431,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+--- !u!114 &30709790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30709785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f2f0d0f5fc7e94ba6b281c152bef70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  waypointDwellTimeInSeconds: 1
+  waypointsParent: {fileID: 0}
+  attackRange: 5
 --- !u!1 &154759133 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2432432776067817063, guid: 1d87952dbeab03b40aef3f1adf7ba8ff, type: 3}
