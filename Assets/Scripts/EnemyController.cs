@@ -54,7 +54,6 @@ public class EnemyController : MonoBehaviour
         // - Else, if there is a waypoint path, patrol behaviour
         if (CheckIfPlayerInRange())
         {
-            // Attack behaviour
             AttackBehaviour();
             return;
         }
@@ -85,12 +84,18 @@ public class EnemyController : MonoBehaviour
     private void AttackBehaviour()
     {
         // Rotate to look at player
-        float angle = 0;
+        LookAt2D();
 
+        // Shoot at intervals (rate is set in Shooter)
+        shooter.Shoot();
+    }
+
+    private void LookAt2D()
+    {
+        float angle = 0;
         Vector3 relative = transform.InverseTransformPoint(target.position);
         angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
         transform.Rotate(0, 0, -angle);
-        // Shoot at intervals... not necessarily firing rate though?
     }
 
     private void OnDrawGizmos()
