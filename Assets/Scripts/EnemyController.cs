@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     private Shooter shooter;
     private List<Transform> waypointTransforms;
     private int currentWaypointIndex;
+    private Transform target;
 
     private void Start()
     {
@@ -54,7 +55,7 @@ public class EnemyController : MonoBehaviour
         if (CheckIfPlayerInRange())
         {
             // Attack behaviour
-            Debug.Log("Attack behaviour");
+            AttackBehaviour();
             return;
         }
         if (waypointsParent != null)
@@ -72,9 +73,24 @@ public class EnemyController : MonoBehaviour
         Collider2D[] allHits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Characters"));
         foreach (Collider2D collider in allHits)
         {
-            if (collider.CompareTag("Player")) return true;
+            if (collider.CompareTag("Player"))
+            {
+                target = collider.transform;
+                return true;
+            }
         }
         return false;
+    }
+
+    private void AttackBehaviour()
+    {
+        // Rotate to look at player
+        float angle = 0;
+
+        Vector3 relative = transform.InverseTransformPoint(target.position);
+        angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+        transform.Rotate(0, 0, -angle);
+        // Shoot at intervals... not necessarily firing rate though?
     }
 
     private void OnDrawGizmos()
