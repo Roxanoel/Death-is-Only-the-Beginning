@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour
     {
         if (fireRateTimer < fireRateInSeconds) return;
         GameObject firedBullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);   // Rotation will need to change but for now leave as is
-        firedBullet.GetComponent<Bullet>().SetBulletDirection(gameObject.transform.up);
+        firedBullet.GetComponent<Bullet>().SetBulletDirection(gameObject.transform.up, damage);
         fireRateTimer = 0;
     }
 

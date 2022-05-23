@@ -360,6 +360,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30709786}
+  - component: {fileID: 30709787}
+  - component: {fileID: 30709789}
+  - component: {fileID: 30709788}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -382,6 +385,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!70 &30709787
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30709785}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.007884472, y: -0.12734376}
+  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Direction: 1
+--- !u!114 &30709788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30709785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6a1dbf29029cb42be319f3dd76b019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  gun: {fileID: 0}
+  fireRateInSeconds: 0.25
+  damage: 1
+--- !u!114 &30709789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30709785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc967ff012f05014a87fa3984c3bbfbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+--- !u!1 &154759133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2432432776067817063, guid: 1d87952dbeab03b40aef3f1adf7ba8ff, type: 3}
+  m_PrefabInstance: {fileID: 2432432776249858787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &154759134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154759133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc967ff012f05014a87fa3984c3bbfbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
 --- !u!1 &441094419
 GameObject:
   m_ObjectHideFlags: 0
