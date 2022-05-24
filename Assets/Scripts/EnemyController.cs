@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     private Shooter shooter;
     private List<Transform> waypointTransforms;
     private int currentWaypointIndex;
-    private Transform target;
+    private Transform shootingTarget;
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         {
             GenerateWaypointList();
             currentWaypointIndex = 0;
-            //transform.position = waypointTransforms[currentWaypointIndex].position;   // I think there is a race condition here (maybe it gets moved when the list is not yet generated!)
+            //transform.position = waypointTransforms[currentWaypointIndex].position;   // I think there is a race condition here (maybe it gets moved when the list is not yet generated! But generating list in Awake also does not work)
         }
     }
 
@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                target = collider.transform;
+                shootingTarget = collider.transform;
                 return true;
             }
         }
@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
     private void AttackBehaviour()
     {
         // Rotate to look at player
-        LookAt2D();
+        LookAt2D(shootingTarget);
 
         // Shoot at intervals (rate is set in Shooter)
         shooter.Shoot();
@@ -103,9 +103,11 @@ public class EnemyController : MonoBehaviour
             targetIndex = currentWaypointIndex + 1;
         }
 
+        LookAt2D(waypointTransforms[currentWaypointIndex + 1]);
+
         if (Vector2.Distance(transform.position, waypointTransforms[currentWaypointIndex + 1].position) > waypointTolerance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypointTransforms[targetIndex].position, waypointTolerance * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypointTransforms[targetIndex].position, waypointTolerance * Time.deltaTime * movementSpeed);
         }
         else
         {
@@ -118,11 +120,10 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void LookAt2D()
+    private void LookAt2D(Transform target)
     {
-        float angle = 0;
         Vector3 relative = transform.InverseTransformPoint(target.position);
-        angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
         transform.Rotate(0, 0, -angle);
     }
 
