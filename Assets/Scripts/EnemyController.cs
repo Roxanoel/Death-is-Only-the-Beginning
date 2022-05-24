@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [Header("Patrolling parameters")]
     [SerializeField] float movementSpeed = 1.0f;
     [SerializeField] float waypointDwellTimeInSeconds = 1.0f;
+    [SerializeField] float waypointTolerance = 0.25f;
     [SerializeField] Transform waypointsParent;
 
     [Header("Attacking parameters")]
@@ -32,7 +33,7 @@ public class EnemyController : MonoBehaviour
         {
             GenerateWaypointList();
             currentWaypointIndex = 0;
-            transform.position = waypointTransforms[currentWaypointIndex].position;
+            //transform.position = waypointTransforms[currentWaypointIndex].position;   // I think there is a race condition here (maybe it gets moved when the list is not yet generated!)
         }
     }
 
@@ -59,8 +60,7 @@ public class EnemyController : MonoBehaviour
         }
         if (waypointsParent != null)
         {
-            // Patrol behaviour
-            Debug.Log("Patrol behaviour");
+            PatrolBehaviour();
         }
     }
 
@@ -88,6 +88,34 @@ public class EnemyController : MonoBehaviour
 
         // Shoot at intervals (rate is set in Shooter)
         shooter.Shoot();
+    }
+
+    private void PatrolBehaviour()
+    {
+        // Think of a way to avoid waypoint's index becoming out of range  
+        int targetIndex;
+        if (currentWaypointIndex >= waypointTransforms.Count - 1)
+        {
+            targetIndex = 0;
+        }
+        else
+        {
+            targetIndex = currentWaypointIndex + 1;
+        }
+
+        if (Vector2.Distance(transform.position, waypointTransforms[currentWaypointIndex + 1].position) > waypointTolerance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypointTransforms[targetIndex].position, waypointTolerance * Time.deltaTime);
+        }
+        else
+        {
+            currentWaypointIndex++;
+        }
+    }
+
+    private void MoveToNextWaypoint()
+    {
+
     }
 
     private void LookAt2D()
