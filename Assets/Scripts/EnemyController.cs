@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -80,7 +81,7 @@ public class EnemyController : MonoBehaviour
 
     private void PatrolBehaviour()
     {
-        // Think of a way to avoid waypoint's index becoming out of range  
+        // Think of a way to cycle through in a loop
         int targetIndex;
         if (currentWaypointIndex >= waypoints.Length - 1)
         {
@@ -99,7 +100,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            currentWaypointIndex++;
+            currentWaypointIndex = targetIndex;
         }
     }
 
