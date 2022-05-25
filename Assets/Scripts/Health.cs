@@ -25,9 +25,15 @@ public class Health : MonoBehaviour
         }
     }
 
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     private void Die()
     {
         // Death behaviour
         Debug.Log($"{name} died.");
+        Destroy(this.gameObject);
     }
 }
