@@ -25,9 +25,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    public float GetCurrentHealth()
+    public float GetCurrentHealthPercentage()
     {
-        return currentHealth;
+        return currentHealth/maxHealth;
     }
 
     private void Die()

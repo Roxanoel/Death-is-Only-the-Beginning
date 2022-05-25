@@ -18,7 +18,8 @@ public class PlayerHealthDisplay : MonoBehaviour
 
     private void Update()  // Change to event later if I have time
     {
-        float xScale =
-        
+        float xScale = playerHealth.GetCurrentHealthPercentage();
+
+        healthBar.localScale = new Vector3(xScale, 1, 1);
     }
 }
