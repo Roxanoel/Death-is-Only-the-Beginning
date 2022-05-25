@@ -44,14 +44,14 @@ TagManager:
   - name: Background
     uniqueID: 2536155927
     locked: 0
+  - name: Decor
+    uniqueID: 3969589165
+    locked: 0
   - name: Walls
     uniqueID: 4202018489
     locked: 0
   - name: Furniture
     uniqueID: 1463334341
-    locked: 0
-  - name: Decor
-    uniqueID: 3969589165
     locked: 0
   - name: Bullets
     uniqueID: 1247679873
