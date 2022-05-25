@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
         if(waypoints.Length > 0)
         {
             currentWaypointIndex = 0;
-            //transform.position = waypointTransforms[currentWaypointIndex].position;   // I think there is a race condition here (maybe it gets moved when the list is not yet generated! But generating list in Awake also does not work)
+            transform.position = waypoints[currentWaypointIndex].position;  
         }
     }
 
