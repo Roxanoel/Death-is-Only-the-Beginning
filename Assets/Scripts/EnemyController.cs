@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float movementSpeed = 1.0f;
     [SerializeField] float waypointDwellTimeInSeconds = 1.0f;
     [SerializeField] float waypointTolerance = 0.25f;
-    [SerializeField] Transform waypointsParent;
+    [SerializeField] Transform[] waypoints;
 
     [Header("Attacking parameters")]
     [SerializeField] float attackRange = 5.0f;
@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
     // Cached refs
     private Health health;  // actually unsure I will need this, tbd
     private Shooter shooter;
-    private List<Transform> waypointTransforms;
     private int currentWaypointIndex;
     private Transform shootingTarget;
 
@@ -29,21 +28,10 @@ public class EnemyController : MonoBehaviour
         shooter = GetComponent<Shooter>();
         if (shooter == null) Debug.LogWarning($"{name} (enemy) has no shooter script!");
 
-        if(waypointsParent != null)
+        if(waypoints.Length > 0)
         {
-            GenerateWaypointList();
             currentWaypointIndex = 0;
             //transform.position = waypointTransforms[currentWaypointIndex].position;   // I think there is a race condition here (maybe it gets moved when the list is not yet generated! But generating list in Awake also does not work)
-        }
-    }
-
-    private void GenerateWaypointList()
-    {
-        waypointTransforms = new List<Transform>();
-        Transform[] allChildren = waypointsParent.GetComponentsInChildren<Transform>();
-        foreach (var child in allChildren)
-        {
-            waypointTransforms.Add(child);
         }
     }
 
@@ -58,7 +46,7 @@ public class EnemyController : MonoBehaviour
             AttackBehaviour();
             return;
         }
-        if (waypointsParent != null)
+        if (waypoints.Length > 0)
         {
             PatrolBehaviour();
         }
@@ -94,7 +82,7 @@ public class EnemyController : MonoBehaviour
     {
         // Think of a way to avoid waypoint's index becoming out of range  
         int targetIndex;
-        if (currentWaypointIndex >= waypointTransforms.Count - 1)
+        if (currentWaypointIndex >= waypoints.Length - 1)
         {
             targetIndex = 0;
         }
@@ -103,11 +91,11 @@ public class EnemyController : MonoBehaviour
             targetIndex = currentWaypointIndex + 1;
         }
 
-        LookAt2D(waypointTransforms[currentWaypointIndex + 1]);
+        LookAt2D(waypoints[targetIndex]);
 
-        if (Vector2.Distance(transform.position, waypointTransforms[currentWaypointIndex + 1].position) > waypointTolerance)
+        if (Vector2.Distance(transform.position, waypoints[targetIndex].position) > waypointTolerance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypointTransforms[targetIndex].position, waypointTolerance * Time.deltaTime * movementSpeed);
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[targetIndex].position, waypointTolerance * Time.deltaTime * movementSpeed);
         }
         else
         {

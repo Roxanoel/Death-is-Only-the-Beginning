@@ -446,7 +446,10 @@ MonoBehaviour:
   movementSpeed: 10
   waypointDwellTimeInSeconds: 1
   waypointTolerance: 0.25
-  waypointsParent: {fileID: 1864866100}
+  waypoints:
+  - {fileID: 2140252992}
+  - {fileID: 1391476479}
+  - {fileID: 1927169426}
   attackRange: 2
 --- !u!1 &154759133 stripped
 GameObject:
