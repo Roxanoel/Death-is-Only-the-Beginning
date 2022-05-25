@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     private Shooter shooter;
     private int currentWaypointIndex;
     private Transform shootingTarget;
+    private float dwellTimer = 0;
 
     private void Start()
     {
@@ -81,7 +82,7 @@ public class EnemyController : MonoBehaviour
 
     private void PatrolBehaviour()
     {
-        // Think of a way to cycle through in a loop
+        // Set target waypoint (by its index)
         int targetIndex;
         if (currentWaypointIndex >= waypoints.Length - 1)
         {
@@ -92,21 +93,30 @@ public class EnemyController : MonoBehaviour
             targetIndex = currentWaypointIndex + 1;
         }
 
+        // Make the enemy face the direction they are headed
         LookAt2D(waypoints[targetIndex]);
 
         if (Vector2.Distance(transform.position, waypoints[targetIndex].position) > waypointTolerance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[targetIndex].position, waypointTolerance * Time.deltaTime * movementSpeed);
+            MoveToNextWaypoint(targetIndex);
         }
         else
         {
-            currentWaypointIndex = targetIndex;
+            // Increment dwell timer
+            dwellTimer += Time.deltaTime;
+
+            // If timer reaches configured dwelling duration, reset it to 0 and register the current index has changed
+            if (dwellTimer >= waypointDwellTimeInSeconds)
+            {
+                dwellTimer = 0;
+                currentWaypointIndex = targetIndex;
+            }
         }
     }
 
-    private void MoveToNextWaypoint()
+    private void MoveToNextWaypoint(int targetIndex)
     {
-
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[targetIndex].position, waypointTolerance * Time.deltaTime * movementSpeed);
     }
 
     private void LookAt2D(Transform target)
