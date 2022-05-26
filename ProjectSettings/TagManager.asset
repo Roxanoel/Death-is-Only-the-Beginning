@@ -44,7 +44,7 @@ TagManager:
   - name: Background
     uniqueID: 2536155927
     locked: 0
-  - name: Decor
+  - name: Decor (under walls and furniture)
     uniqueID: 3969589165
     locked: 0
   - name: Walls
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Furniture
     uniqueID: 1463334341
+    locked: 0
+  - name: Decor (on top of furniture)
+    uniqueID: 864970747
     locked: 0
   - name: Bullets
     uniqueID: 1247679873
