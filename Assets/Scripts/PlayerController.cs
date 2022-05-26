@@ -15,11 +15,16 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 inputDirection;
     private Shooter shooter;
+    private GameManager gameManager;
+    private Health health;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         shooter = GetComponent<Shooter>();
+        gameManager = FindObjectOfType<GameManager>();
+        health = GetComponent<Health>();
+        health.onPlayerDied += OnPlayerDeath;
     }
 
 
@@ -53,6 +58,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
     }
+
     public void OnMove(InputValue value)
     {
         inputDirection = value.Get<Vector2>();
@@ -61,5 +67,10 @@ public class PlayerController : MonoBehaviour
     public void OnFire()
     {
         shooter.Shoot();
+    }
+
+    public void OnPlayerDeath()
+    {
+        gameManager.TriggerGameOverState();
     }
 }

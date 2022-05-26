@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class Health : MonoBehaviour
 
     // Cached refs
     private float currentHealth;
+
+    // Events
+    public event Action onPlayerDied;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -37,6 +42,13 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        if (GetComponent<PlayerController>())
+        {
+            if (onPlayerDied != null)
+            {
+                onPlayerDied.Invoke();
+            }
+        }
         // Death behaviour
         Debug.Log($"{name} died.");
         Destroy(this.gameObject);
