@@ -56,6 +56,9 @@ TagManager:
   - name: Bullets
     uniqueID: 1247679873
     locked: 0
+  - name: Pickups
+    uniqueID: 743927209
+    locked: 0
   - name: Characters
     uniqueID: 3077235867
     locked: 0

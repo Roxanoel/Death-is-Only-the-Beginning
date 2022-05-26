@@ -25,6 +25,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void HealFully()
+    {
+        currentHealth = maxHealth;
+    }
+
     public float GetCurrentHealthPercentage()
     {
         return currentHealth/maxHealth;
