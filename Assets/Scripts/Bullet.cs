@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
 
     // Cached refs
     private Rigidbody2D rb;
-    private AudioSource audioSource;
     private Vector3 forward;
     private bool directionWasSetup = false;
     private float damage;
@@ -19,7 +18,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
         Destroy(this.gameObject, lifetimeInSeconds);
     }
 
@@ -41,8 +39,8 @@ public class Bullet : MonoBehaviour
         if (collision.GetComponent<Health>())
         {
             collision.GetComponent<Health>().TakeDamage(damage);
-            audioSource.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Length)]);
+            AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0, hitSounds.Length)], Camera.main.transform.position);
         }
-        Destroy(this.gameObject, 0.75f); // For now only destroys & doesn't check tags or layers.
+        Destroy(gameObject); // For now only destroys & doesn't check tags or layers.
     }
 }
