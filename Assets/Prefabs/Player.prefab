@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 730199560645125177, guid: 47adeb41ed1bc154e91304dab1e14644, type: 3}
   gun: {fileID: 2432432775499803059}
-  fireRateInSeconds: 0.25
+  fireRateInSeconds: 0.1
   damage: 1
   gunshotSounds:
   - {fileID: 8300000, guid: 2a0f6edc309e0a745bde00d2eec184db, type: 3}
