@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 15.0f;
     [SerializeField] float lifetimeInSeconds = 3.0f;
     [SerializeField] AudioClip[] hitSounds;
+    [SerializeField] GameObject hitBloodVFXPrefab;
 
     // Cached refs
     private Rigidbody2D rb;
@@ -40,6 +41,8 @@ public class Bullet : MonoBehaviour
         {
             collision.GetComponent<Health>().TakeDamage(damage);
             AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0, hitSounds.Length)], Camera.main.transform.position);
+            GameObject hitVFX = Instantiate(hitBloodVFXPrefab, collision.transform.position, Quaternion.identity);
+            Destroy(hitVFX, 1.5f);
         }
         Destroy(gameObject); // For now only destroys & doesn't check tags or layers.
     }
