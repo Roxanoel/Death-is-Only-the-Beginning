@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         shooter = GetComponent<Shooter>();
         if (shooter == null) Debug.LogWarning($"{name} (enemy) has no shooter script!");
 
-        if(waypoints.Length > 0)
+        if(waypoints != null && waypoints.Length > 0)
         {
             currentWaypointIndex = 0;
             transform.position = waypoints[currentWaypointIndex].position;  
