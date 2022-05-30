@@ -31274,6 +31274,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
+      propertyPath: aggroDurationInSeconds
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4837697315231378190, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
       propertyPath: fireRateInSeconds
       value: 0.55
@@ -33332,6 +33336,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
+      propertyPath: aggroDurationInSeconds
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 119829870}
@@ -33481,6 +33489,10 @@ PrefabInstance:
     - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
       propertyPath: waypoints.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
+      propertyPath: aggroDurationInSeconds
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4837697315231378190, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
       propertyPath: fireRateInSeconds
@@ -46187,6 +46199,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
+      propertyPath: aggroDurationInSeconds
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837697315231378188, guid: 52312aee4faf15c4da1b1b3b6a1ccff1, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 2140252992}
@@ -46682,6 +46698,7 @@ MonoBehaviour:
   - {fileID: 9044810115361132905}
   - {fileID: 2121208773}
   attackRange: 2
+  aggroDurationInSeconds: 2.5
 --- !u!114 &9044810114002783462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46847,6 +46864,7 @@ MonoBehaviour:
   waypointTolerance: 0.25
   waypoints: []
   attackRange: 4
+  aggroDurationInSeconds: 2.5
 --- !u!212 &9044810114365209442
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47040,6 +47058,7 @@ MonoBehaviour:
   - {fileID: 77999911}
   - {fileID: 1950392741}
   attackRange: 2
+  aggroDurationInSeconds: 2.5
 --- !u!114 &9044810114488931750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47141,6 +47160,7 @@ MonoBehaviour:
   waypointTolerance: 0.25
   waypoints: []
   attackRange: 4
+  aggroDurationInSeconds: 2.5
 --- !u!114 &9044810114517036894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47520,6 +47540,7 @@ MonoBehaviour:
   - {fileID: 9044810114675336890}
   - {fileID: 1607683093}
   attackRange: 2
+  aggroDurationInSeconds: 2.5
 --- !u!1 &9044810114950816397
 GameObject:
   m_ObjectHideFlags: 0
@@ -47739,14 +47760,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9044810115273471658}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9617413, w: 0.27395934}
-  m_LocalPosition: {x: -2.14, y: 6.32, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.8622408, w: 0.5064986}
+  m_LocalPosition: {x: -1.52, y: 6.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9044810114365209443}
   m_Father: {fileID: 948507222}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 148.2}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 119.138}
 --- !u!1 &9044810115273471658
 GameObject:
   m_ObjectHideFlags: 0
@@ -47783,7 +47804,8 @@ MonoBehaviour:
   waypointDwellTimeInSeconds: 1
   waypointTolerance: 0.25
   waypoints: []
-  attackRange: 3
+  attackRange: 2.22
+  aggroDurationInSeconds: 2.5
 --- !u!114 &9044810115273471662
 MonoBehaviour:
   m_ObjectHideFlags: 0
