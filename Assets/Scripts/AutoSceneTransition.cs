@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AutoSceneTransition : MonoBehaviour
+public class AutoSceneTransition : SceneTransition
 {
     private void Start()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadNextScene();
     }
 }
