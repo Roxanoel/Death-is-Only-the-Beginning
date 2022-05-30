@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Enemy Hideout.unity
     guid: f5825ce781ad0264c96ee6841c65300c
+  - enabled: 1
+    path: Assets/Scenes/Win screen.unity
+    guid: b41f959311eefaf46b1f3f311aa5249d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c82b0b6686c3a344998b1994edede16e, type: 2}
