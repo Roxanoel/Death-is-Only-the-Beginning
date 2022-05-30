@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float aggroDurationInSeconds = 5.0f;
 
     // Cached refs
-    private Health health;  // actually unsure I will need this, tbd
     private Shooter shooter;
     private int currentWaypointIndex;
     private Transform shootingTarget;
@@ -31,6 +30,8 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         shooter = GetComponent<Shooter>();
+        shootingTarget = GameObject.FindWithTag("Player").transform;
+
         if (shooter == null) Debug.LogWarning($"{name} (enemy) has no shooter script!");
 
         if(waypoints != null && waypoints.Length > 0)
@@ -82,7 +83,6 @@ public class EnemyController : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                shootingTarget = collider.transform;
                 return true;
             }
         }
@@ -148,6 +148,14 @@ public class EnemyController : MonoBehaviour
         Vector3 relative = transform.InverseTransformPoint(target.position);
         float angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
         transform.Rotate(0, 0, -angle);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Bullet>())
+        {
+            Aggravate();
+        }
     }
 
     private void OnDrawGizmos()
