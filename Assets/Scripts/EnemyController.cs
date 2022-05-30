@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Attacking parameters")]
     [SerializeField] float attackRange = 5.0f;
+    [SerializeField] float aggroDurationInSeconds = 5.0f;
 
     // Cached refs
     private Health health;  // actually unsure I will need this, tbd
@@ -24,6 +25,8 @@ public class EnemyController : MonoBehaviour
     private int currentWaypointIndex;
     private Transform shootingTarget;
     private float dwellTimer = 0;
+    private float aggroCountdownTimer = 0;
+    private bool isAggro = false;
 
     private void Start()
     {
@@ -41,19 +44,34 @@ public class EnemyController : MonoBehaviour
     {
         // Logic:
         // - If player is in range, attack. 
-        // - If suspicious, suspicion behaviour (leave for later, optional). & return?
         // - Else, if there is a waypoint path, patrol behaviour
         if (CheckIfPlayerInRange())
         {
-            AttackBehaviour();
-            return;
+            Aggravate();
         }
-        if (waypoints.Length > 0)
+        if (isAggro == true)
+        {
+            AttackBehaviour();
+        }
+        if (waypoints.Length > 0 && !isAggro)
         {
             PatrolBehaviour();
         }
+        UpdateAggroTimer();
     }
 
+    private void UpdateAggroTimer()
+    {
+        if (aggroCountdownTimer > 0)
+        {
+            aggroCountdownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            aggroCountdownTimer = 0;
+            isAggro = false;
+        }
+    }
 
     private bool CheckIfPlayerInRange()
     {
@@ -117,6 +135,12 @@ public class EnemyController : MonoBehaviour
     private void MoveToNextWaypoint(int targetIndex)
     {
         transform.position = Vector2.MoveTowards(transform.position, waypoints[targetIndex].position, waypointTolerance * Time.deltaTime * movementSpeed);
+    }
+
+    private void Aggravate()
+    {
+        isAggro = true;
+        aggroCountdownTimer = aggroDurationInSeconds;
     }
 
     private void LookAt2D(Transform target)
