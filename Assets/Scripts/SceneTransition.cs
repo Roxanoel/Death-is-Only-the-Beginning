@@ -7,6 +7,8 @@ public class SceneTransition : MonoBehaviour
 {
     public void LoadNextScene()
     {
+        Time.timeScale = 1;
+
         int indexOfSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
 
         if(indexOfSceneToLoad < SceneManager.sceneCountInBuildSettings)
@@ -21,6 +23,7 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadTitleScreen()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Title screen");
     }
 }

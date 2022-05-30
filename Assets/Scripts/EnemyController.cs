@@ -92,6 +92,7 @@ public class EnemyController : MonoBehaviour
     private void AttackBehaviour()
     {
         // Rotate to look at player
+        if (shootingTarget != null)
         LookAt2D(shootingTarget);
 
         // Shoot at intervals (rate is set in Shooter)

@@ -6,7 +6,16 @@ public class WinGameTrigger : MonoBehaviour
 {
     [SerializeField] SceneTransition sceneTransition;
 
-    private void OnDestroy()
+    // Cached refs
+    private Health health;
+
+    private void Start()
+    {
+        health = GetComponent<Health>();
+        health.onDeath += OnBossDeath;
+    }
+
+    private void OnBossDeath()
     {
         sceneTransition.LoadNextScene();
     }

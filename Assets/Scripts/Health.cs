@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     private float currentHealth;
 
     // Events
-    public event Action onPlayerDied;
+    public event Action onDeath;
 
     private void Start()
     {
@@ -22,7 +22,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        Debug.Log($"{name} took damage! Health = {currentHealth}/{maxHealth}");
         
         if (currentHealth <= 0)
         {
@@ -42,15 +41,11 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        if (GetComponent<PlayerController>())
+        if (onDeath != null)
         {
-            if (onPlayerDied != null)
-            {
-                onPlayerDied.Invoke();
-            }
+            onDeath.Invoke();
         }
         // Death behaviour
-        Debug.Log($"{name} died.");
         Destroy(this.gameObject);
     }
 }

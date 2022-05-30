@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         shooter = GetComponent<Shooter>();
         gameManager = FindObjectOfType<GameManager>();
         health = GetComponent<Health>();
-        health.onPlayerDied += OnPlayerDeath;
+        health.onDeath += OnPlayerDeath;
     }
 
 
