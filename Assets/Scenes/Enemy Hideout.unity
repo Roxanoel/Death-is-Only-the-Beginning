@@ -1239,6 +1239,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1971902353}
     m_Modifications:
+    - target: {fileID: 954150766541910920, guid: 7e3e8704432c4a04491a8e635cd29a9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1157054515}
+    - target: {fileID: 954150766541910920, guid: 7e3e8704432c4a04491a8e635cd29a9f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadTitleScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 954150766541910922, guid: 7e3e8704432c4a04491a8e635cd29a9f, type: 3}
       propertyPath: m_Name
       value: retry button
@@ -31850,6 +31858,17 @@ Transform:
   m_Father: {fileID: 119829871}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157054515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5217840889769039108, guid: 5987df3bc9c2a6a4bb37f202fc1aa936, type: 3}
+  m_PrefabInstance: {fileID: 1049112820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4425b8c15b372e48aa6b5915a4d5e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160486272
 GameObject:
   m_ObjectHideFlags: 0
