@@ -550,7 +550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vengeance complete
+  m_text: You have been avenged
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7af2f8eef33f1654b856fce2da2b4bc1, type: 2}
   m_sharedMaterial: {fileID: -5558912865294623348, guid: 7af2f8eef33f1654b856fce2da2b4bc1, type: 2}
