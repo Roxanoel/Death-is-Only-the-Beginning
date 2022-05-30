@@ -49,8 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentInput == true)
         {  
-            Vector3 movement = inputDirection.normalized * speed * Time.deltaTime;
-            rb.velocity = movement * speed; // wait why speed twice and why cache the vector3
+            rb.velocity = inputDirection.normalized * speed * Time.deltaTime; 
             transform.up = rb.velocity.normalized;
         }
         else
