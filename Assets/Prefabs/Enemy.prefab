@@ -78,8 +78,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!114 &4837697315231378191
 MonoBehaviour:
@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attackRange: 2
+  aggroDurationInSeconds: 5
 --- !u!1 &4837697315665815261
 GameObject:
   m_ObjectHideFlags: 0

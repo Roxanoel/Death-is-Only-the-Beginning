@@ -51752,8 +51752,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!4 &9044810114002783457
 Transform:
@@ -51924,8 +51924,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!114 &9044810114318099820
 MonoBehaviour:
@@ -52123,8 +52123,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!1 &9044810114488931747
 GameObject:
@@ -52233,8 +52233,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!1 &9044810114517036891
 GameObject:
@@ -52596,8 +52596,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!114 &9044810114927672116
 MonoBehaviour:
@@ -52863,8 +52863,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007884472, y: -0.12734376}
-  m_Size: {x: 0.68461835, y: 0.4243209}
+  m_Offset: {x: 0.006169646, y: -0.12219931}
+  m_Size: {x: 0.7634997, y: 0.53063995}
   m_Direction: 1
 --- !u!4 &9044810115273471657
 Transform:
